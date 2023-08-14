@@ -40,6 +40,8 @@ namespace ArcheryGUI
             {
 
                 await getDateTime();
+                Task.Delay(1000);
+                
             }
         }
         private async Task getChart(requestModel model)
