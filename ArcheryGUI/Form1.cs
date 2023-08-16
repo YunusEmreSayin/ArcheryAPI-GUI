@@ -40,7 +40,6 @@ namespace ArcheryGUI
             {
 
                 await getDateTime();
-                Task.Delay(1000);
                 
             }
         }
@@ -91,6 +90,7 @@ namespace ArcheryGUI
                 var jsonString = await response.Content.ReadAsStringAsync();
                 JObject jsonObject = JObject.Parse(jsonString);
                 lbltime.Text = (string)jsonObject["Date"];
+                await Task.Delay(1000);
 
             }
             catch (Exception ex)
