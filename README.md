@@ -1,2 +1,3 @@
 # ArcheryAPI-GUI
-Working on async to API
+This is a project contains an API for creating charts from online data.(https://api.worldarchery.org). Also this project has a GUI for this API.
+The GUI working with async.
