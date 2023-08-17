@@ -82,22 +82,26 @@ namespace ArcheryGUI
 
         private async Task getDateTime()
         {
-            HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("http://127.0.0.1:8000/");
-
-            try
+            await Task.Run(async () =>
             {
-                var response = await client.GetAsync("getTarihSaat");
-                var jsonString = await response.Content.ReadAsStringAsync();
-                JObject jsonObject = JObject.Parse(jsonString);
-                lbltime.Text = (string)jsonObject["Date"];
-                await Task.Delay(1000);
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri("http://127.0.0.1:8000/");
 
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+                try
+                {
+                    var response = await client.GetAsync("getTarihSaat");
+                    var jsonString = await response.Content.ReadAsStringAsync();
+                    JObject jsonObject = JObject.Parse(jsonString);
+                    lbltime.Text = (string)jsonObject["Date"];
+                    await Task.Delay(1000);
+
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+
+                }
+            });
         }
     }
 }
