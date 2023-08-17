@@ -47,7 +47,7 @@ namespace ArcheryGUI
         private async Task getChart(requestModel model)
         {
             var client=new HttpClient();
-            client.BaseAddress = new Uri("http://localhost:80");
+            client.BaseAddress = new Uri("http://127.0.0.1:8000/");
             
             JavaScriptSerializer js= new JavaScriptSerializer();
             var SerializedData=js.Serialize(model);
@@ -83,7 +83,7 @@ namespace ArcheryGUI
         private async Task getDateTime()
         {
             HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("http://localhost:80");
+            client.BaseAddress = new Uri("http://127.0.0.1:8000/");
 
             try
             {
