@@ -10,6 +10,8 @@ import asyncio
 import base64
 from aiohttp import web
 
+"""defining flask application"""
+app = Flask(__name__)
 
 def getDataArchery(winRate, TBwinRate):
     """ Connecting Url for getting data"""
@@ -99,8 +101,6 @@ def getGraph(name):
     return base64_string
 
 
-"""defining flask application"""
-app = Flask(__name__)
 
 """Home Page"""
 
