@@ -28,19 +28,20 @@ namespace ArcheryGUI
         {
             requestModel dataModel = new requestModel();
             dataModel.Name = txtarcher.Text;
-            
-
+    
             await getChart(dataModel);
             MessageBox.Show("Grafik Oluşturuldu","Grafik Oluşturma Başarılı");
             txtarcher.Clear();
         }
         private async void Form1_Load(object sender, EventArgs e)
         {
+            lbltime.Text = lbltime.Text = (DateTime.Now).ToString();
+            
+            Control.CheckForIllegalCrossThreadCalls = false; //For async Methods
+            
             while (true)
             {
-
-                await getDateTime();
-                
+                await getDateTime();    
             }
         }
         private async Task getChart(requestModel model)
